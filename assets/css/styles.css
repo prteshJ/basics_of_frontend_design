@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
+:root {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font: normal 1rem sans-serif;
+    margin: 0;
+    color: #555;
+    background: black url(../images/darkness.png) repeat 0 0;
+    animation: animatedBg 15s ease infinite;
+}
+
+/*Appears in landscape mode only*/
+.helperText {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #52fa74ad;
+    visibility: hidden;
+    animation: fadeTitle 5s ease infinite;
+}
+
+/*Current project description appears to be faded*/
+.projectDesc {
+    animation: fadeTitle 5s ease infinite;
+}
+
+/*All h4 elements fade*/
+h4 {
+    animation: fadeTitle 5s linear infinite;
+}
+
+/*Add fading animation to text*/
+@keyframes fadeTitle {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/*Profile image*/
+img {
+    display: flex;
+    box-shadow: 0px 2px 10px 5px #000000;
+    margin-bottom: 1.5vh;
+    justify-content: center;
+    height: 56vmin;
+}
+
+/*Add an animation to background image*/
+@keyframes animatedBg {
+    from {
+        background-position: 0 0
+    }
+    to {
+        background-position: -100vmax 0
+    }
+}
+
+/*Title for interests and project sections*/
+.title {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typingText 5s steps(82, end) 1s infinite;
+}
+
+/*Add typing animation*/
+@keyframes typingText {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/*Remove list bullets*/
+ul,
+nav {
+    list-style: none;
+}
+
+a {
+    color: #45D16B;
+    text-decoration: line-through wavy green;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+a:hover {
+    opacity: 1;
+    color: red;
+    text-decoration: underline red;
+}
+
+hr {
+    width: 10vw;
+    height: 2px;
+    background-color: #219653;
+    border: 0;
+    margin-bottom: 5vmin;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+section h3.title {
+    color: #414a4f;
+    text-transform: capitalize;
+    font: bold 2rem 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+section h3.workTitle {
+    color: #fff;
+    text-transform: capitalize;
+    font: bold 2rem 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+section p {
+    text-align: center;
+    line-height: 2;
+}
+
+ul.grid {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: green;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav li {
+    margin: 2.5vmin;
+}
+
+header nav li:first-child {
+    margin-left: 0.2vmin;
+}
+
+header nav li:last-child {
+    margin-right: 0.2vmin;
+}
+
+/*Fix header for portrait mode*/
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
+
+    header h2 {
+        margin-bottom: 1vw;
+    }
+}
+
+/*Fix header for landscape mode*/
+@media (min-width: 700px) {
+    header {
+        justify-content: center;
+    }
+}
+
+.myself {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    padding: 5vw 10vw;
+}
+
+.myself h1 {
+    font: bold 3rem 'Open-Sans', sans-serif;
+    margin: 0;
+}
+
+.myself h3 {
+    font: normal 2rem 'Open Sans', sans-serif;
+    margin-bottom: 0;
+}
+
+/*Fix about me section for portrait mode*/
+@media (max-width: 700px) {
+    .myself h1 {
+        font-size: 1.9rem;
+        color: beige;
+    }
+
+    .myself h3 {
+        font-size: 0.99rem;
+        color: #0aff69cf;
+    }
+
+    img {
+        width: 77vw;
+    }
+}
+
+/*Fix about me section for landscape mode*/
+@media (min-width: 700px) {
+
+    .myself h1 {
+        font-size: 2.7rem;
+        color: #fff;
+    }
+
+    .myself h3 {
+        font-size: 1.5rem;
+        color: #0aff69cf;
+    }
+}
+
+/*Use Flexbox wisely for landscape mode*/
+@media all and (orientation: landscape) {
+
+    .myself h1 {
+        order: 2;
+    }
+
+    .myself h3 {
+        order: 3;
+    }
+
+    img {
+        width: 77vw;
+        margin-top: 1.5vw;
+        margin-bottom: 15vmax;
+        order: 1;
+    }
+
+    .helperText {
+        font-weight: 800;
+        visibility: visible;
+    }
+}
+
+/*Skills section*/
+.technicalInterests {
+    background-color: #f7f7f7;
+}
+
+.technicalInterests .grid li {
+    padding: 0 2.2vmin;
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.technicalInterests .grid li i {
+    margin-left: 2.7vmin;
+    font-size: 5rem;
+    color: #2196F3;
+}
+
+.technicalInterests .grid li h4 {
+    color: #555;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.technicalInterests .grid li p {
+    margin-bottom: 5vmin;
+    padding-right: 2.3vmin;
+}
+
+@media (max-width: 1000px) {
+    .technicalInterests .grid li {
+        margin-bottom: 2vmax;
+    }
+}
+
+@media (max-width: 850px) {
+
+    .technicalInterests .grid li {
+        flex-basis: 45%;
+    }
+
+    .technicalInterests .grid li p {
+        font-size: 1rem;
+        padding: 3.75vmax;
+    }
+
+    .technicalInterests .grid li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .technicalInterests .grid li {
+        flex-basis: 100%;
+    }
+
+    .technicalInterests .titleDesc {
+        margin: 5vmax;
+    }
+}
+
+/*Work experience*/
+.workExperience {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, #d94a5a, #bc335d, #9c215d, #7a145a, #560d53);
+}
+
+.work {
+    color: #fff;
+}
+
+@media (max-width: 850px) {
+    .work {
+        font-size: 1rem;
+        padding: 1vmax;
+    }
+}
+
+@media all and (orientation: landscape) {
+    .work {
+        padding: 0;
+    }
+}
+
+/*projects*/
+.workProjects {
+    justify-content: center;
+    background-color: #fff;
+}
+
+/*Footer section contains contact me information*/
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 1vmin 0;
+}
+
+footer ul {
+    display: flex;
+    font-size: 2rem;
+    margin-bottom: 1vmin;
+}
+
+footer ul li {
+    margin: 0 8px;
+}
+
+footer ul li:first-child {
+    margin-left: 0;
+}
+
+footer ul li:last-child {
+    margin-right: 0;
+}
+
+footer p {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+}
+
+footer p a {
+    color: #fff;
+}
+
+/*Custom designed by me*/
+.copyrightedText {
+    color: #45D16B;
+    font-size: 1.08rem;
+    text-transform: capitalize;
+    padding-bottom: 1vmin;
+    cursor: pointer;
+    opacity: 0.9;
+}
